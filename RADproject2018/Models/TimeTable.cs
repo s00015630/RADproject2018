@@ -1,16 +1,22 @@
+using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 public class TimeTable
 {
-	private int ID;
+    [Key]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    public int ID;
 
-	private [lecture or lab] Name;
+	public string Name;
 
-	private Date Day;
+	public DateTime Day;
 
-	private char Room;
+	public string Room;
 
-	private Time StartTime;
+	public DateTime StartTime;
 
-	private Time EndTime;
+	public DateTime EndTime;
 
 }
 

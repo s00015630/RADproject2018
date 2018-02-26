@@ -1,14 +1,19 @@
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 public class Department
 {
-	private int ID;
+    [Key]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    public int ID;
 
-	private char Name;
+	public string Name;
 
-	private char ChairID;
+	public string ChairID;
 
-	private int Phone;
+	public int Phone;
 
-	private char Email;
+	public string Email;
 
 }
 

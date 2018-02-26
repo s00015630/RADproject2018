@@ -1,12 +1,12 @@
 public class Section
 {
-	private int ID;
+	public int ID;
 
-	private int CourseID;
+	public Course CourseID;
 
-	private int InstrurctorID;
+	public Instructor InstrurctorID;
 
-	private int TimeTableID;
+	public TimeTable TimeTableID;
 
 }
 

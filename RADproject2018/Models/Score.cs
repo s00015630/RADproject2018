@@ -1,14 +1,19 @@
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 public class Score
 {
-	private int ID;
+    [Key]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    public int ID;
 
-	private int EnrollmentID;
+	public Enrollment EnrollmentID;
 
-	private int Assessement ID;
+	public Assessement AssessementID;
 
-	private int Grade;
+	public int Grade;
 
-	private int StudentID;
+	public Student StudentID;
 
 }
 

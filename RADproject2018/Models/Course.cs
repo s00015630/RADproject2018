@@ -1,14 +1,19 @@
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 public class Course
 {
-	private int ID;
+    [Key]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    public int ID;
 
-	private char Name;
+	public string Name;
 
-	private char Describion;
+	public string Describion;
 
-	private char Type;
+	public string Type;
 
-	private char Term;
+	public string Term;
 
 }
 

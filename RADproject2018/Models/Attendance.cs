@@ -1,14 +1,20 @@
+using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 public class Attendance
 {
-	private int ID;
+    [Key]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    public int ID;
 
-	private int StudentID;
+	public Student StudentID;
 
-	private int SectionID;
+	public Section SectionID;
 
-	private Date DateAttended;
+	public DateTime DateAttended;
 
-	private int Hours;
+	public int Hours;
 
 }
 

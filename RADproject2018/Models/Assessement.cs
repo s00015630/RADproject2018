@@ -1,10 +1,17 @@
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 public class Assessement
 {
-	private int ID;
+    [Key]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    public int ID;
 
-	private int CourseID;
+	public Course CourseID;
 
-	private int InstructorID;
+	public Instructor InstructorID;
+
+    public string Descrption { get; set; }
 
 }
 

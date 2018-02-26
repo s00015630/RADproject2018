@@ -1,16 +1,22 @@
+using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 public class Enrollment
 {
-	private int ID;
+    [Key]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    public int ID;
 
-	private int AcadmaicYear;
+	public int AcadmaicYear;
 
-	private int Term;
+	public int Term;
 
-	private Date DateEnrolled;
+	public DateTime DateEnrolled;
 
-	private int StudentID;
+	public Student StudentID;
 
-	private int SectionID;
+	public Section SectionID;
 
 }
 

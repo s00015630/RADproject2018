@@ -1,18 +1,23 @@
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 public class Instructor
 {
-	private int ID;
+    [Key]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    public int ID;
 
-	private int Instructor Num;
+	public int InstructorNum;
 
-	private char FirstName;
+	public string FirstName;
 
-	private char LastName;
+	public string LastName;
 
-	private char Rank;
+	public string Rank;
 
-	private char Type;
+	public string Type;
 
-	private int DepartmentID;
+	public Department DepartmentID;
 
 }
 

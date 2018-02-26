@@ -174,11 +174,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Assessement.cs" />
     <Compile Include="Models\Attendance.cs" />
     <Compile Include="Models\Course.cs" />
-    <Compile Include="Models\Date.cs" />
     <Compile Include="Models\Department.cs" />
     <Compile Include="Models\Enrollment.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -187,7 +187,7 @@
     <Compile Include="Models\Score.cs" />
     <Compile Include="Models\Section.cs" />
     <Compile Include="Models\Student.cs" />
-    <Compile Include="Models\Time.cs" />
+    <Compile Include="Models\StudentDBContext.cs" />
     <Compile Include="Models\TimeTable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />

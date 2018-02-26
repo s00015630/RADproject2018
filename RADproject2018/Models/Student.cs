@@ -1,14 +1,19 @@
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 public class Student
 {
-	private int ID;
+    [Key]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    public int ID;
 
-	private char FirstName;
+	public string FirstName;
 
-	private char LastName;
+	public string LastName;
 
-	private char Student Num;
+	public string StudentNum;
 
-	private char Email;
+	public string Email;
 
 }
 
