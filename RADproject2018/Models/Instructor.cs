@@ -17,7 +17,5 @@ public class Instructor
 
 	public string Type;
 
-	public Department DepartmentID;
-
 }
 
