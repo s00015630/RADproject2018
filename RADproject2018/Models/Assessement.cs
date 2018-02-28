@@ -7,17 +7,21 @@ public class Assessement
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     [Display(Name = "ID")]
+    [Required()]
     public int ID;
 
     [Display(Name = "Course ID")]
     [ForeignKey("ID")]
-	public Course CourseID;
+    [Required()]
+    public Course CourseID;
 
     [Display(Name = "Instructor ID")]
     [ForeignKey("ID")]
-	public Instructor InstructorID;
+    [Required()]
+    public Instructor InstructorID;
 
     [Display(Name = "Description")]
+    [Required()]
     public string Descrption { get; set; }
 
 }

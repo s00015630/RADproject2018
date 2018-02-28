@@ -6,13 +6,21 @@ public class Section
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    [Display(Name = "ID")]
+    [Required()]
     public int ID;
 
-	public Course CourseID;
+    [Display(Name = "Course ID")]
+    [Required()]
+    public Course CourseID;
 
-	public Instructor InstrurctorID;
+    [Display(Name = "Instructor ID")]
+    [Required()]
+    public Instructor InstrurctorID;
 
-	public TimeTable TimeTableID;
+    [Display(Name = "Time Table ID")]
+    [Required()]
+    public TimeTable TimeTableID;
 
 }
 
