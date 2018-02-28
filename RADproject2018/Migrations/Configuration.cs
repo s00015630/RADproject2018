@@ -83,4 +83,5 @@ namespace RADproject2018.Migrations
             };
             */
         }
+    }
 }
