@@ -1,6 +1,12 @@
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+[Table("Score")]
 public class Section
 {
-	public int ID;
+    [Key]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    public int ID;
 
 	public Course CourseID;
 
