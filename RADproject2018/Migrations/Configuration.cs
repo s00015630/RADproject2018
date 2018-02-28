@@ -50,5 +50,37 @@ namespace RADproject2018.Migrations
 
             };
         }
-    }
+        private void SeedCourses(ApplicationDbContext context)
+        {
+            /*
+            var courses = new List<Course>()
+            {
+                new Course {
+                    FirstName = "John",
+                    LastName = "JohnnyBoy",
+                    StudentNum = "S0012345678",
+                    Email = "S0012345678@mail.itsligo.ie"
+                },
+                new Student {
+                    FirstName = "Han",
+                    LastName = "HunBun",
+                    StudentNum = "S008456345",
+                    Email = "S008456345@mail.itsligo.ie"
+                },
+                new Student {
+                    FirstName = "Mike",
+                    LastName = "Micky",
+                    StudentNum = "S00111111",
+                    Email = "S00111111@mail.itsligo.ie"
+                },
+                new Student {
+                    FirstName = "hellna",
+                    LastName = "JohnnyBoy",
+                    StudentNum = "S0012345678",
+                    Email = "S0012345678@mail.itsligo.ie"
+                }
+
+            };
+            */
+        }
 }
