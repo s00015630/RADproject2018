@@ -2,19 +2,27 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
+[Table(Name = "Attendance")]
 public class Attendance
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    [Display(Name = "ID")]
     public int ID;
 
-	public Student StudentID;
+    [Display(Name = "Student ID")]
+    [ForeignKey("ID")]
+    public Student StudentID;
 
-	public Section SectionID;
+    [Display(Name = "Section ID")]
+    [ForeignKey("ID")]
+    public Section SectionID;
 
-	public DateTime DateAttended;
+    [Display(Name = "Date Attended")]
+    public DateTime DateAttended;
 
-	public int Hours;
+    [Display(Name = "Hours")]
+    public int Hours;
 
 }
 

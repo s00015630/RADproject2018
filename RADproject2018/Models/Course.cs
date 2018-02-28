@@ -1,19 +1,25 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
+[Table(Name = "Course")]
 public class Course
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    [Display(Name = "ID")]
     public int ID;
 
-	public string Name;
+    [Display(Name = "Name")]
+    public string Name;
 
-	public string Describion;
+    [Display(Name = "Description")]
+    public string Describion;
 
-	public string Type;
+    [Display(Name = "Type")]
+    public string Type;
 
-	public string Term;
+    [Display(Name = "Term")]
+    public string Term;
 
 }
 

@@ -1,21 +1,28 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
+[Table(Name = "Instructor")]
 public class Instructor
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    [Display(Name = "ID")]
     public int ID;
 
-	public int InstructorNum;
+    [Display(Name = "Instructor Name")]
+    public int InstructorNum;
 
-	public string FirstName;
+    [Display(Name = "First Name")]
+    public string FirstName;
 
-	public string LastName;
+    [Display(Name = "Last Name")]
+    public string LastName;
 
-	public string Rank;
+    [Display(Name = "Rank")]
+    public string Rank;
 
-	public string Type;
+    [Display(Name = "Tyoe")]
+    public string Type;
 
 }
 

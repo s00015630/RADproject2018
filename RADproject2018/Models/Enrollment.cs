@@ -2,21 +2,30 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
+[Table(Name = "Enrollment")]
 public class Enrollment
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    [Display(Name = "ID")]
     public int ID;
 
-	public int AcadmaicYear;
+    [Display(Name = "Acadamic Year")]
+    public int AcadmaicYear;
 
-	public int Term;
+    [Display(Name = "Term")]
+    public int Term;
 
-	public DateTime DateEnrolled;
+    [Display(Name = "Date Enrolled")]
+    public DateTime DateEnrolled;
 
-	public Student StudentID;
+    [Display(Name = "Student ID")]
+    [ForeignKey("ID")]
+    public Student StudentID;
 
-	public Section SectionID;
+    [Display(Name = "Section ID")]
+    [ForeignKey("ID")]
+    public Section SectionID;
 
 }
 
