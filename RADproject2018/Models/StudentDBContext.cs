@@ -20,7 +20,6 @@ namespace RADproject2018.Models
         public DbSet<Score> Scores { get; set; }
         public DbSet<Instructor> Instructors { get; set; }
         public DbSet<Enrollment> Enrollments { get; set; }
-        //public DbSet<Department> Departments { get; set; }
         public DbSet<Attendance> Attendances { get; set; }
         public DbSet<Assessement> Assessements { get; set; }
     }
