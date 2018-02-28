@@ -2,7 +2,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-[Table(Name = "Attendance")]
+[Table("Attendance")]
 public class Attendance
 {
     [Key]

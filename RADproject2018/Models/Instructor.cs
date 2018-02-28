@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-[Table(Name = "Instructor")]
+[Table("Instructor")]
 public class Instructor
 {
     [Key]
