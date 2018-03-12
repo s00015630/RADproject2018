@@ -10,15 +10,15 @@ public class Attendance
     [Display(Name = "Attendance ID")]
     public int ID { get; set; }
 
-    [Display(Name = "Student ID")]
-    [ForeignKey("ID")]
+    
+    [ForeignKey("AssociatedStudent")]
     [Required()]
-    public Student StudentID { get; set; }
+    public int StudentID { get; set; }
 
-    [Display(Name = "Section ID")]
-    [ForeignKey("ID")]
+    
+    [ForeignKey("AssociatedSection")]
     [Required()]
-    public Section SectionID { get; set; }
+    public int SectionID { get; set; }
 
     [Display(Name = "Date Attended")]
     [Required()]
@@ -27,6 +27,12 @@ public class Attendance
     [Display(Name = "Hours")]
     [Required()]
     public int Hours { get; set; }
+
+    public virtual Student AssociatedStudent { get; set; }
+
+    public virtual Section AssociatedSection { get; set; }
+
+
 
 }
 

@@ -9,12 +9,12 @@ public class Score
     [Display(Name = "Score ID")]
     public int ID { get; set; }
 
-    [Display(Name = "Enrollment ID")]
-    [ForeignKey("Enrollment")] 
-    [Required()]
-    public Enrollment EnrollmentID { get; set; }
 
-    
+    [ForeignKey("AssoassociatedEnrollment")]
+    [Required()]
+    public int EnrollmentID { get; set; }
+
+
     [ForeignKey("AssoassociatedAssessment")]
     [Required()]
     public int AssessementID { get; set; }
@@ -24,11 +24,13 @@ public class Score
     public int Grade { get; set; }
 
     
-    [ForeignKey("StudentID")]
+    [ForeignKey("AssoassociatedStudent")]
     [Required()]
-    public Student StudentID { get; set; }
+    public int StudentID { get; set; }
 
     public virtual Assessement AssoassociatedAssessment { get; set; }
+    public virtual Student AssoassociatedStudent { get; set; }
+    public virtual Enrollment AssoassociatedEnrollment { get; set; }
 
 }
 

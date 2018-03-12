@@ -9,19 +9,22 @@ public class Assessement
     [Display(Name = "Assessment ID")]
     public int ID { get; set; }
 
-    [Display(Name = "Course ID")]
-    [ForeignKey("ID")]
+    
+    [ForeignKey("AssociatedCourse")]
     [Required()]
-    public Course CourseID { get; set; }
+    public int CourseID { get; set; }
 
-    [Display(Name = "Instructor ID")]
-    [ForeignKey("ID")]
+    
+    [ForeignKey("AssociatedInstructor")]
     [Required()]
-    public Instructor InstructorID { get; set; }
+    public int InstructorID { get; set; }
 
     [Display(Name = "Description")]
     [Required()]
     public string Descrption { get; set; }
+
+    public virtual Course AssociatedCourse { get; set; }
+    public virtual Instructor AssociatedInstructor { get; set; }
 
 }
 

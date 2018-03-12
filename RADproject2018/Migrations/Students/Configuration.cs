@@ -1,6 +1,8 @@
 namespace RADproject2018.Migrations.Students
 {
+    using Models;
     using System;
+    using System.Collections.Generic;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
@@ -9,7 +11,8 @@ namespace RADproject2018.Migrations.Students
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationDataLossAllowed = true;
             MigrationsDirectory = @"Migrations\Students";
         }
 
@@ -27,6 +30,40 @@ namespace RADproject2018.Migrations.Students
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+            SeedStudent(context);
+        }
+
+        private void SeedStudent(StudentDBContext context)
+        {
+            var students = new List<Student>()
+            {
+                new Student {
+                    FirstName = "John",
+                    LastName = "JohnnyBoy",
+                    StudentNum = "S0012345678",
+                    Email = "S0012345678@mail.itsligo.ie"
+                },
+                new Student {
+                    FirstName = "Han",
+                    LastName = "HunBun",
+                    StudentNum = "S008456345",
+                    Email = "S008456345@mail.itsligo.ie"
+                },
+                new Student {
+                    FirstName = "Mike",
+                    LastName = "Micky",
+                    StudentNum = "S00111111",
+                    Email = "S00111111@mail.itsligo.ie"
+                },
+                new Student {
+                    FirstName = "hellna",
+                    LastName = "JohnnyBoy",
+                    StudentNum = "S0012345678",
+                    Email = "S0012345678@mail.itsligo.ie"
+                }
+
+            };
         }
     }
 }
+
