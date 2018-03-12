@@ -7,27 +7,26 @@ public class Attendance
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    [Display(Name = "ID")]
-    [Required()]
-    public int ID;
+    [Display(Name = "Attendance ID")]
+    public int ID { get; set; }
 
     [Display(Name = "Student ID")]
     [ForeignKey("ID")]
     [Required()]
-    public Student StudentID;
+    public Student StudentID { get; set; }
 
     [Display(Name = "Section ID")]
     [ForeignKey("ID")]
     [Required()]
-    public Section SectionID;
+    public Section SectionID { get; set; }
 
     [Display(Name = "Date Attended")]
     [Required()]
-    public DateTime DateAttended;
+    public DateTime DateAttended { get; set; }
 
     [Display(Name = "Hours")]
     [Required()]
-    public int Hours;
+    public int Hours { get; set; }
 
 }
 

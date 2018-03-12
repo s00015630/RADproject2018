@@ -1,24 +1,23 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-[Table(Name = "Assessment")]
+[Table("Assessment")]
 public class Assessement
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    [Display(Name = "ID")]
-    [Required()]
-    public int ID;
+    [Display(Name = "Assessment ID")]
+    public int ID { get; set; }
 
     [Display(Name = "Course ID")]
     [ForeignKey("ID")]
     [Required()]
-    public Course CourseID;
+    public Course CourseID { get; set; }
 
     [Display(Name = "Instructor ID")]
     [ForeignKey("ID")]
     [Required()]
-    public Instructor InstructorID;
+    public Instructor InstructorID { get; set; }
 
     [Display(Name = "Description")]
     [Required()]

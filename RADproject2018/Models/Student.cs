@@ -6,25 +6,24 @@ public class Student
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    [Display(Name = "ID")]
-    [Required()]
-    public int ID;
+    [Display(Name = "Student ID")]
+    public int ID { get; set; }
 
     [Display(Name = "First Name")]
     [Required()]
-    public string FirstName;
+    public string FirstName { get; set; }
 
     [Display(Name = "Last Name")]
     [Required()]
-    public string LastName;
+    public string LastName { get; set; }
 
     [Display(Name = "Student Number")]
     [Required()]
-    public string StudentNum;
+    public string StudentNum { get; set; }
 
     [Display(Name = "Email")]
     [Required()]
-    public string Email;
+    public string Email { get; set; }
 
 }
 

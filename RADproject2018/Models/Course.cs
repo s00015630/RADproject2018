@@ -6,21 +6,24 @@ public class Course
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    [Display(Name = "ID")]
-    [Required()]
-    public int ID;
+    [Display(Name = "Course ID")]
+    public int ID { get; set; }
+
     [Display(Name = "Name")]
     [Required()]
-    public string Name;
+    public string Name { get; set; }
+
     [Display(Name = "Description")]
     [Required()]
-    public string Describion;
+    public string Describion { get; set; }
+
     [Display(Name = "Type")]
     [Required()]
-    public string Type;
+    public string Type { get; set; }
+
     [Display(Name = "Term")]
     [Required()]
-    public string Term;
+    public string Term { get; set; }
 
 }
 

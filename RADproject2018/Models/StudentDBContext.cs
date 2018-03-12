@@ -10,7 +10,7 @@ namespace RADproject2018.Models
     {
         public StudentDBContext() : base("RADproject2018")
         {
-
+            Configuration.LazyLoadingEnabled = false;
         }
 
         public DbSet<Student> Students { get; set; }

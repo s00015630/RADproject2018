@@ -174,11 +174,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Migrations\Students\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Assessement.cs" />
     <Compile Include="Models\Attendance.cs" />
     <Compile Include="Models\Course.cs" />
+    <Compile Include="Models\DAL\IRepository.cs" />
+    <Compile Include="Models\DAL\IStudentRepository.cs" />
     <Compile Include="Models\Enrollment.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Instructor.cs" />

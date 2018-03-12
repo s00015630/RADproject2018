@@ -6,28 +6,29 @@ public class Score
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    [Display(Name = "ID")]
-    [Required()]
-    public int ID;
+    [Display(Name = "Score ID")]
+    public int ID { get; set; }
 
     [Display(Name = "Enrollment ID")]
     [ForeignKey("Enrollment")] 
     [Required()]
-    public Enrollment EnrollmentID;
+    public Enrollment EnrollmentID { get; set; }
 
-    [Display(Name = "Assessment ID")]
-    [ForeignKey("Assessement")]
+    
+    [ForeignKey("AssoassociatedAssessment")]
     [Required()]
-    public Assessement AssessementID;
+    public int AssessementID { get; set; }
 
     [Display(Name = "Grade")]
     [Required()]
-    public int Grade;
+    public int Grade { get; set; }
 
-    [Display(Name = "Student")]
-    [ForeignKey("Student")]
+    
+    [ForeignKey("StudentID")]
     [Required()]
-    public Student StudentID;
+    public Student StudentID { get; set; }
+
+    public virtual Assessement AssoassociatedAssessment { get; set; }
 
 }
 

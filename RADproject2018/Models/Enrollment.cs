@@ -7,31 +7,30 @@ public class Enrollment
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    [Display(Name = "ID")]
-    [Required()]
-    public int ID;
+    [Display(Name = "Enrollment ID")]
+    public int ID { get; set; }
 
     [Display(Name = "Acadamic Year")]
     [Required()]
-    public int AcadmaicYear;
+    public int AcadmaicYear { get; set; }
 
     [Display(Name = "Term")]
     [Required()]
-    public int Term;
+    public int Term { get; set; }
 
     [Display(Name = "Date Enrolled")]
     [Required()]
-    public DateTime DateEnrolled;
+    public DateTime DateEnrolled { get; set; }
 
     [Display(Name = "Student ID")]
     [ForeignKey("ID")]
     [Required()]
-    public Student StudentID;
+    public Student StudentID { get; set; }
 
     [Display(Name = "Section ID")]
     [ForeignKey("ID")]
     [Required()]
-    public Section SectionID;
+    public Section SectionID { get; set; }
 
 }
 
