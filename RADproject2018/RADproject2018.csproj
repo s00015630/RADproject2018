@@ -179,11 +179,11 @@
       <DependentUpon>201803122129511_Initial migration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\ApplicationUserMigrations\Configuration.cs" />
-    <Compile Include="Migrations\Students\201803122128572_Initial migration.cs" />
-    <Compile Include="Migrations\Students\201803122128572_Initial migration.Designer.cs">
-      <DependentUpon>201803122128572_Initial migration.cs</DependentUpon>
+    <Compile Include="Migrations\StudentCourses\201803131401443_Initial migration.cs" />
+    <Compile Include="Migrations\StudentCourses\201803131401443_Initial migration.Designer.cs">
+      <DependentUpon>201803131401443_Initial migration.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\Students\Configuration.cs" />
+    <Compile Include="Migrations\StudentCourses\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Assessement.cs" />
     <Compile Include="Models\Attendance.cs" />
@@ -211,6 +211,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="ClassDiagram1.cd" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -273,8 +274,8 @@
     <EmbeddedResource Include="Migrations\ApplicationUserMigrations\201803122129511_Initial migration.resx">
       <DependentUpon>201803122129511_Initial migration.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\Students\201803122128572_Initial migration.resx">
-      <DependentUpon>201803122128572_Initial migration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\StudentCourses\201803131401443_Initial migration.resx">
+      <DependentUpon>201803131401443_Initial migration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

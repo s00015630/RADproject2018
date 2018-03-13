@@ -10,9 +10,9 @@ public class Score
     public int ID { get; set; }
 
 
-    [ForeignKey("AssoassociatedEnrollment")]
-    [Required()]
-    public int EnrollmentID { get; set; }
+    //[ForeignKey("AssoassociatedEnrollment")]
+    //[Required()]
+    //public int EnrollmentID { get; set; }
 
 
     [ForeignKey("AssoassociatedAssessment")]
@@ -30,7 +30,7 @@ public class Score
 
     public virtual Assessement AssoassociatedAssessment { get; set; }
     public virtual Student AssoassociatedStudent { get; set; }
-    public virtual Enrollment AssoassociatedEnrollment { get; set; }
+   // public virtual Enrollment AssoassociatedEnrollment { get; set; }
 
 }
 

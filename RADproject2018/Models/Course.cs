@@ -15,7 +15,7 @@ public class Course
 
     [Display(Name = "Description")]
     [Required()]
-    public string Describion { get; set; }
+    public string Description { get; set; }
 
     [Display(Name = "Type")]
     [Required()]

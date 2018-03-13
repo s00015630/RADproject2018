@@ -1,5 +1,8 @@
 namespace RADproject2018.Migrations.ApplicationUserMigrations
 {
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
+    using Models;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -15,18 +18,31 @@ namespace RADproject2018.Migrations.ApplicationUserMigrations
 
         protected override void Seed(RADproject2018.Models.ApplicationDbContext context)
         {
-            //  This method will be called after migrating to the latest version.
+            var manager =
+                 new UserManager<ApplicationUser>(
+                     new UserStore<ApplicationUser>(context));
 
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
+            var roleManager =
+                new RoleManager<IdentityRole>(
+                    new RoleStore<IdentityRole>(context));
+
+            roleManager.Create(new IdentityRole { Name = "Administrator Manager" });
+
+            context.Users.AddOrUpdate(u => u.UserName,
+                new ApplicationUser
+                {
+                    UserName = "s00015630",
+                    Email = "s00015630@mail.itsligo.ie",
+                    EmailConfirmed = true,
+                    SecurityStamp = Guid.NewGuid().ToString(),
+                    PasswordHash = new PasswordHasher().HashPassword("s00015630$")
+                }
+                );
+
+            context.SaveChanges();
+            var s00015630 = manager.FindByName("s00015630");
+            manager.AddToRole(s00015630.Id, "Administrator Manager");
+            context.SaveChanges();
         }
     }
 }

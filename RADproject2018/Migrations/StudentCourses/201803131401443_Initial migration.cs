@@ -1,4 +1,4 @@
-namespace RADproject2018.Migrations.Students
+namespace RADproject2018.Migrations.StudentCourses
 {
     using System;
     using System.Data.Entity.Migrations;
@@ -28,7 +28,7 @@ namespace RADproject2018.Migrations.Students
                     {
                         ID = c.Int(nullable: false, identity: true),
                         Name = c.String(nullable: false),
-                        Describion = c.String(nullable: false),
+                        Description = c.String(nullable: false),
                         Type = c.String(nullable: false),
                         Term = c.String(nullable: false),
                     })
@@ -122,31 +122,10 @@ namespace RADproject2018.Migrations.Students
                 .Index(t => t.StudentID)
                 .Index(t => t.SectionID);
             
-            CreateTable(
-                "dbo.Score",
-                c => new
-                    {
-                        ID = c.Int(nullable: false, identity: true),
-                        EnrollmentID = c.Int(nullable: false),
-                        AssessementID = c.Int(nullable: false),
-                        Grade = c.Int(nullable: false),
-                        StudentID = c.Int(nullable: false),
-                    })
-                .PrimaryKey(t => t.ID)
-                .ForeignKey("dbo.Assessment", t => t.AssessementID, cascadeDelete: true)
-                .ForeignKey("dbo.Enrollment", t => t.EnrollmentID, cascadeDelete: true)
-                .ForeignKey("dbo.Student", t => t.StudentID, cascadeDelete: true)
-                .Index(t => t.EnrollmentID)
-                .Index(t => t.AssessementID)
-                .Index(t => t.StudentID);
-            
         }
         
         public override void Down()
         {
-            DropForeignKey("dbo.Score", "StudentID", "dbo.Student");
-            DropForeignKey("dbo.Score", "EnrollmentID", "dbo.Enrollment");
-            DropForeignKey("dbo.Score", "AssessementID", "dbo.Assessment");
             DropForeignKey("dbo.Enrollment", "StudentID", "dbo.Student");
             DropForeignKey("dbo.Enrollment", "SectionID", "dbo.Section");
             DropForeignKey("dbo.Attendance", "StudentID", "dbo.Student");
@@ -156,9 +135,6 @@ namespace RADproject2018.Migrations.Students
             DropForeignKey("dbo.Section", "CourseID_ID", "dbo.Course");
             DropForeignKey("dbo.Assessment", "InstructorID", "dbo.Instructor");
             DropForeignKey("dbo.Assessment", "CourseID", "dbo.Course");
-            DropIndex("dbo.Score", new[] { "StudentID" });
-            DropIndex("dbo.Score", new[] { "AssessementID" });
-            DropIndex("dbo.Score", new[] { "EnrollmentID" });
             DropIndex("dbo.Enrollment", new[] { "SectionID" });
             DropIndex("dbo.Enrollment", new[] { "StudentID" });
             DropIndex("dbo.Section", new[] { "TimeTableID_ID" });
@@ -168,7 +144,6 @@ namespace RADproject2018.Migrations.Students
             DropIndex("dbo.Attendance", new[] { "StudentID" });
             DropIndex("dbo.Assessment", new[] { "InstructorID" });
             DropIndex("dbo.Assessment", new[] { "CourseID" });
-            DropTable("dbo.Score");
             DropTable("dbo.Enrollment");
             DropTable("dbo.Student");
             DropTable("dbo.TimeTable");
