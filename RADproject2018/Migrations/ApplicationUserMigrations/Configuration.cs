@@ -35,7 +35,9 @@ namespace RADproject2018.Migrations.ApplicationUserMigrations
                     Email = "s00015630@mail.itsligo.ie",
                     EmailConfirmed = true,
                     SecurityStamp = Guid.NewGuid().ToString(),
-                    PasswordHash = new PasswordHasher().HashPassword("s00015630$")
+                    PasswordHash = new PasswordHasher().HashPassword("s00015630$"),
+                    FirstName ="Mark",
+                    SecondName = "O Shea"
                 }
                 );
 
