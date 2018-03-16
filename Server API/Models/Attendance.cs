@@ -13,25 +13,19 @@ namespace Server_API.Models
 
 
         [ForeignKey("AssociatedStudent")]
-        [Required()]
         public int StudentID { get; set; }
 
-
         [ForeignKey("AssociatedSection")]
-        [Required()]
         public int SectionID { get; set; }
 
         [Display(Name = "Date Attended")]
-        [Required()]
         public DateTime DateAttended { get; set; }
 
-        [Display(Name = "Hours")]
-        [Required()]
         public int Hours { get; set; }
 
         public virtual Student AssociatedStudent { get; set; }
 
-        public virtual Section AssociatedSection { get; set; }
+        public virtual DeliveryOfCourse AssociatedSection { get; set; }
 
 
     }

@@ -1,5 +1,9 @@
+using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Web;
 namespace Server_API.Models
 {
     [Table("Student")]
@@ -11,20 +15,17 @@ namespace Server_API.Models
         public int ID { get; set; }
 
         [Display(Name = "First Name")]
-        [Required()]
         public string FirstName { get; set; }
 
         [Display(Name = "Last Name")]
-        [Required()]
         public string LastName { get; set; }
 
-        [Display(Name = "Student Number")]
-        [Required()]
+        [Display(Name = "Student Number")] 
         public string StudentNum { get; set; }
 
-        [Display(Name = "Email")]
-        [Required()]
         public string Email { get; set; }
+
+        public virtual ICollection<Enrollment> EnrolledFor { get; set; }
 
     }
 }

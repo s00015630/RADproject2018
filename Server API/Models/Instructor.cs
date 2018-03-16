@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 namespace Server_API.Models
@@ -11,24 +12,15 @@ namespace Server_API.Models
         public int ID { get; set; }
 
         [Display(Name = "Instructor Name")]
-        [Required()]
         public int InstructorNum { get; set; }
 
         [Display(Name = "First Name")]
-        [Required()]
         public string FirstName { get; set; }
 
         [Display(Name = "Last Name")]
-        [Required()]
         public string LastName { get; set; }
 
-        [Display(Name = "Rank")]
-        [Required()]
-        public string Rank { get; set; }
-
-        [Display(Name = "Tyoe")]
-        [Required()]
-        public string Type { get; set; }
+        public virtual ICollection<DeliveryOfCourse> DeliveryInstructor { get; set; }
 
     }
 }

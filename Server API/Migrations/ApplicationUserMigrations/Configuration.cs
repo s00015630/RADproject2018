@@ -1,4 +1,4 @@
-namespace Server_API.Migrations.ApplicationMigrations
+namespace Server_API.Migrations.ApplicationUserMigrations
 {
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
@@ -13,14 +13,14 @@ namespace Server_API.Migrations.ApplicationMigrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            MigrationsDirectory = @"Migrations\ApplicationMigrations";
+            MigrationsDirectory = @"Migrations\ApplicationUserMigrations";
         }
 
         protected override void Seed(Server_API.Models.ApplicationDbContext context)
         {
             var manager =
-                  new UserManager<ApplicationUser>(
-                      new UserStore<ApplicationUser>(context));
+                   new UserManager<ApplicationUser>(
+                       new UserStore<ApplicationUser>(context));
 
             var roleManager =
                 new RoleManager<IdentityRole>(

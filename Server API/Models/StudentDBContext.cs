@@ -17,8 +17,8 @@ namespace Server_API.Models
         public DbSet<Student> Students { get; set; }
         public DbSet<Course> Courses { get; set; }
         public DbSet<TimeTable> TimeTables { get; set; }
-        public DbSet<Section> Sections { get; set; }
-        //public DbSet<Score> Scores { get; set; }
+        public DbSet<DeliveryOfCourse> DeliveryOf { get; set; }
+        public DbSet<StudentAttendance> StudentAttendances { get; set; }
         public DbSet<Instructor> Instructors { get; set; }
         public DbSet<Enrollment> Enrollments { get; set; }
         public DbSet<Attendance> Attendances { get; set; }

@@ -1,6 +1,9 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Web;
 namespace Server_API.Models
 {
     [Table("Enrollment")]
@@ -11,30 +14,24 @@ namespace Server_API.Models
         [Display(Name = "Enrollment ID")]
         public int ID { get; set; }
 
-        [Display(Name = "Acadamic Year")]
-        [Required()]
         public int AcadmaicYear { get; set; }
 
-        [Display(Name = "Term")]
-        [Required()]
-        public int Term { get; set; }
-
         [Display(Name = "Date Enrolled")]
-        [Required()]
         public DateTime DateEnrolled { get; set; }
 
 
-        [ForeignKey("AssociatedStudent")]
-        [Required()]
+        [ForeignKey("EnrolledStudent")]
         public int StudentID { get; set; }
 
 
-        [ForeignKey("AssociatedSection")]
-        [Required()]
-        public int SectionID { get; set; }
+        [ForeignKey("EnrolledCourse")]
+        public int CourseID { get; set; }
 
-        public virtual Student AssociatedStudent { get; set; }
-        public virtual Section AssociatedSection { get; set; }
+
+        public virtual Student EnrolledStudent { get; set; }
+        public virtual Course EnrolledCourse { get; set; }
+
+
 
     }
 
