@@ -1,9 +1,9 @@
-namespace Server_API.Migrations.ApplicationMigrations
+namespace Server_API.Migrations.ApplicationUserMigrations
 {
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Initial : DbMigration
+    public partial class InitialApplicationMigration : DbMigration
     {
         public override void Up()
         {

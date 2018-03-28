@@ -12,16 +12,11 @@ namespace Server_API.Models
 
 
         [ForeignKey("AssociatedCourse")]
-        [Required()]
         public int CourseID { get; set; }
 
-
         [ForeignKey("AssociatedInstructor")]
-        [Required()]
         public int InstructorID { get; set; }
 
-        [Display(Name = "Description")]
-        [Required()]
         public string Descrption { get; set; }
 
         public virtual Course AssociatedCourse { get; set; }
