@@ -20,31 +20,61 @@ namespace Server_API.Migrations.ApplicationUserMigrations
         {
             var manager =
                    new UserManager<ApplicationUser>(
-                       new UserStore<ApplicationUser>(context));
+                   new UserStore<ApplicationUser>(context));
 
             var roleManager =
                 new RoleManager<IdentityRole>(
-                    new RoleStore<IdentityRole>(context));
+                new RoleStore<IdentityRole>(context));
 
-            roleManager.Create(new IdentityRole { Name = "Administrator Manager" });
+            roleManager.Create(new IdentityRole { Name = "Admin" });
+            roleManager.Create(new IdentityRole { Name = "Instructor" });
+            roleManager.Create(new IdentityRole { Name = "student" });
 
             context.Users.AddOrUpdate(u => u.UserName,
                 new ApplicationUser
                 {
-                    UserName = "s00015630",
+                    UserName = "Admin",
                     Email = "s00015630@mail.itsligo.ie",
                     EmailConfirmed = true,
                     SecurityStamp = Guid.NewGuid().ToString(),
-                    PasswordHash = new PasswordHasher().HashPassword("s00015630$"),
+                    PasswordHash = new PasswordHasher().HashPassword("Moshea1$"),
                     FirstName = "Mark",
                     SecondName = "O Shea"
                 }
                 );
 
-            context.SaveChanges();
-            var s00015630 = manager.FindByName("s00015630");
-            manager.AddToRole(s00015630.Id, "Administrator Manager");
-            context.SaveChanges();
+
+            context.Users.AddOrUpdate(u => u.UserName,
+                new ApplicationUser
+                {
+                    UserName = "Instructor",
+                    Email = "nauris@mail.itsligo.ie",
+                    EmailConfirmed = true,
+                    SecurityStamp = Guid.NewGuid().ToString(),
+                    PasswordHash = new PasswordHasher().HashPassword("Neidulis1$"),
+                    FirstName = "Nauris",
+                    SecondName = "Eidulis"
+                });
+
+            ApplicationUser admin = manager.FindByEmail("s00015630@mail.itsligo.ie");
+            if (admin != null)
+            {
+                manager.AddToRoles(admin.Id, new string[] { "Admin", "Instructor", "student" });
+            }
+            else
+            {
+                throw new Exception { Source = "Did not find admin" };
+            }
+
+            ApplicationUser instructor = manager.FindByEmail("nauris@mail.itsligo.ie");
+            if(instructor !=null)
+            {
+                manager.AddToRoles(instructor.Id, new string[] { "Instructor", "student" });
+            }
+            else
+            {
+                throw new Exception { Source = "Did not find instructor" };
+            }
         }
     }
 }
