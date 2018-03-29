@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Net.Http.Formatting;
-using CommonObjects; 
- 
+using CommonObjects;
+
 namespace StudentClient
 {
     public enum AUTHSTATUS { NONE, OK, INVALID, FAILED }
-     
+
 
     public static class ClientApiLib
     {
@@ -64,7 +64,7 @@ namespace StudentClient
 
             }
         }
-
+         //list all students
         static public List<StudentDTO> geStudentList()
         {
             using (var client = new HttpClient())
@@ -81,7 +81,7 @@ namespace StudentClient
                 return resultContent;
             }
         }
-
+        //add a student
         static public StudentDTO addStudent(StudentDTO student)
         {
             using (var client = new HttpClient())
@@ -89,7 +89,7 @@ namespace StudentClient
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Token);
-                var response = client.PostAsJsonAsync(baseWebAddress + "api/Students/add/Course", student).Result;
+                var response = client.PostAsJsonAsync(baseWebAddress + "api/Students/add/Student", student).Result;
                 if (response.IsSuccessStatusCode)
                 {
                     var resultContent = response.Content.ReadAsAsync<StudentDTO>(
@@ -100,18 +100,18 @@ namespace StudentClient
                 return null;
             }
         }
-
-        static public CourseDTO delete(int courseID)
+        //delete a student
+        static public StudentDTO delete(int studentID)
         {
             using (var client = new HttpClient())
             {
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Token);
-                var response = client.DeleteAsync(baseWebAddress + "api/Students/delete/Course/" + courseID).Result;
+                var response = client.DeleteAsync(baseWebAddress + "api/Students/delete/Student/" + studentID).Result;
                 if (response.IsSuccessStatusCode)
                 {
-                    var resultContent = response.Content.ReadAsAsync<CourseDTO>(
+                    var resultContent = response.Content.ReadAsAsync<StudentDTO>(
                         new[] { new JsonMediaTypeFormatter() }).Result;
 
                     return resultContent;

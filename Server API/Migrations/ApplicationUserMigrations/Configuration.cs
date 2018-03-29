@@ -75,6 +75,8 @@ namespace Server_API.Migrations.ApplicationUserMigrations
             {
                 throw new Exception { Source = "Did not find instructor" };
             }
+
+            context.SaveChanges();
         }
     }
 }

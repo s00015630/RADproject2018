@@ -39,8 +39,8 @@ namespace AttendanceUserInterface
             {
                 if (selectedItem == student.Name)
                 {
-                    studentDetsID.Content = student.ID.ToString();
-                    studentDetsName.Content = student.Name.ToString();
+                    //studentDetsID.Content = student.ID.ToString();
+                    //studentDetsName.Content = student.Name.ToString();
                 }
             }
         }

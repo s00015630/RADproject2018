@@ -12,6 +12,7 @@ using Server_API.Models;
 
 namespace Server_API.Controllers
 {
+    
     [RoutePrefix("api/Students")]
     public class StudentsController : ApiController
     {
@@ -25,7 +26,8 @@ namespace Server_API.Controllers
 
         // GET: api/Students/5
         [HttpGet]
-        [Route("Students")]
+        [Authorize(Roles = "Instructor")]
+        [Route("get/Student")]
         [ResponseType(typeof(Student))]
         public IHttpActionResult GetStudent(int id)
         {
@@ -89,6 +91,9 @@ namespace Server_API.Controllers
         }
 
         // DELETE: api/Students/5
+        //Only an admin can delete a student
+        [Authorize(Roles = "Admin")]
+        [Route("api/Students/delete/Student")]
         [ResponseType(typeof(Student))]
         public IHttpActionResult DeleteStudent(int id)
         {
