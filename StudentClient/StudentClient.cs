@@ -29,11 +29,11 @@ namespace StudentClient
                         new KeyValuePair<string, string>("username", username),
                         new KeyValuePair<string, string>("password", password),
                     });
-                // Post the form to the Toekn end point
+                // Post the form to the Token end point
                 var result = client.PostAsync(baseWebAddress + "Token", content).Result;
                 try
                 {
-                    // Make sure System.Net.Http.Extensoins is referenced through Nuget
+                    // Make sure System.Net.Http.Extensions is referenced through Nuget
                     // For async http action calls
                     var resultContent = result.Content.ReadAsAsync<Token>(
                         new[] { new JsonMediaTypeFormatter() }

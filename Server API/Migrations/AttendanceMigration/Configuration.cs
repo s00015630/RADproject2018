@@ -70,13 +70,19 @@ namespace Server_API.Migrations.AttendanceMigration
 
         private Student[] GetRandomStudent(StudentDBContext Context, int count)
         {
-            var randomids = Context.Students.Select(s => new { s.ID, order = Guid.NewGuid() })
-                                    .OrderBy(o => o.order)
-                                    .Select(s => s.ID);
+            IQueryable<int> randomids = RandomStudent(Context);
             // take count where student record contains selected random ids
             return Context.Students.Where(s => randomids.Contains(s.ID))
                                    .Take(count).ToArray();
 
+        }
+
+        private static IQueryable<int> RandomStudent(StudentDBContext Context)
+        {
+            // get some random students
+            return Context.Students.Select(s => new { s.ID, order = Guid.NewGuid() })
+                                    .OrderBy(o => o.order)
+                                    .Select(s => s.ID);
         }
 
         private void SeedInstructors(StudentDBContext context)

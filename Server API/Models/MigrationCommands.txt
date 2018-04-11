@@ -1,5 +1,5 @@
 ﻿enable-migrations -ContextTypeName Server_API.Models.StudentDBContext -MigrationsDirectory Migrations\AttendanceMigrations
-enable-migrations -ContextTypeName Server_API.Models.Models.ApplicationDbContext -MigrationsDirectory Migrations\ApplicationUserMigrations
+enable-migrations -ContextTypeName Server_API.Models.ApplicationDbContext -MigrationsDirectory Migrations\ApplicationUserMigrations
 
 add-migration –ConfigurationTypeName Server_API.Migrations.ApplicationUserMigrations.Configuration "Initial Application Migration"
 add-migration –ConfigurationTypeName Server_API.Migrations.AttendanceMigration.Configuration "Initial Attendance Migration"
