@@ -12,7 +12,7 @@ using Server_API.Models;
 
 namespace Server_API.Controllers
 {
-    //[Authorize(Roles ="Admin")]
+    [Authorize(Roles ="Admin")]
     [RoutePrefix("api/Students")]
     public class StudentsController : ApiController
     {
@@ -22,12 +22,12 @@ namespace Server_API.Controllers
         public IQueryable<Student> GetStudents()
         {
             return db.Students;
-        }
+        } 
 
         // GET: api/Students/5
         //Find a student by their id
         [HttpGet]
-        //[Authorize(Roles = "Instructor")]
+        [Authorize(Roles = "Instructor")]
         [Route("getStudentById/{id}")]
         [ResponseType(typeof(Student))]
         public IHttpActionResult GetStudent(int id)

@@ -14,24 +14,28 @@ using CommonObjects;
 
 namespace Server_API.Controllers
 {
+    [RoutePrefix("api/Courses")]
+    [Authorize(Roles = "Admin")]
     public class CoursesController : ApiController
-    {
+    { 
         private StudentDBContext db = new StudentDBContext();
 
         // GET: api/Courses
         public IQueryable<CourseDTO> GetCourses()
         {
             var courses = from c in db.Courses
-                         select new CourseDTO()
-                         {
-                             ID = c.ID,
-                             Name = c.Name,
-                             Description = c.Description
-                         };
+                          select new CourseDTO()
+                          {
+                              ID = c.ID,
+                              Name = c.Name,
+                              Description = c.Description
+                          };
             return courses;
         }
 
         // GET: api/Courses/5
+        [Authorize(Roles = "Instructor")] 
+        [Route("getCourseById/{id}")]
         [ResponseType(typeof(CourseDTO))]
         public async Task<IHttpActionResult> GetCourse(int id)
         {

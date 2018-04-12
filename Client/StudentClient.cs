@@ -14,7 +14,7 @@ namespace StudentClient
     {
         static public string baseWebAddress;
         static public string Token = "";
-        static public AUTHSTATUS Status = AUTHSTATUS.NONE;
+        static public AUTHSTATUS Status = AUTHSTATUS.NONE; 
 
         static public bool login(string username, string password)
         {

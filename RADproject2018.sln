@@ -11,6 +11,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AttendanceUserInterface", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "Client\Client.csproj", "{9B97FEB1-0001-462E-93B7-FCCFF766D5C0}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Video S00015630", "Video S00015630", "{825F56A1-DD71-4C28-AA09-1196746FEAEF}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\Downloads\S00015630.webm = ..\..\..\Downloads\S00015630.webm
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
