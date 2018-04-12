@@ -1,5 +1,5 @@
 ﻿using Newtonsoft.Json;
-
+//Token for postman
 namespace CommonObjects
 {
     public class Token

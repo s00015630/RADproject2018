@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
+using System.Data.SqlClient;
 
 namespace AttendanceUserInterface
 {
@@ -20,40 +22,72 @@ namespace AttendanceUserInterface
     /// </summary>
     public partial class MainWindow : Window
     {
-        static Student student = new Student()
-        {
-            ID = 1,
-            Name = "John Doe"
-        };
+        static SqlConnection db = new SqlConnection(@"Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=&quot;|DataDirectory|\DefaultConnection.mdf&quot;;Initial Catalog=&quot;aspnet-Server API-20180314083742&quot;;Integrated Security=True");
+        static SqlCommand cmd = new SqlCommand();
+        static Student[] students;
         public MainWindow()
         {
-            InitializeComponent();
-
-            studentList.Items.Add(student.Name);
-        }
-
-        private void studentList_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            string selectedItem = studentList.SelectedItem as string;
-            if(selectedItem != null)
+            db.Open();
+            students = null;
+            string sql = @"SELECT FirstName, LastName FROM  Student";
+            cmd.Connection = db;
+            using (var command = new SqlCommand(sql, db))
             {
-                if (selectedItem == student.Name)
+                using (var reader = command.ExecuteReader())
                 {
-                    //studentDetsID.Content = student.ID.ToString();
-                    //studentDetsName.Content = student.Name.ToString();
+                    var list = new List<Student>();
+                    while (reader.Read())
+                        list.Add(new Student { FirstName = reader.GetString(0), LastName = reader.GetString(1) });
+                    students = list.ToArray();
                 }
             }
+
+            db.Close();
+
+            InitializeComponent();
+            studentList.ItemsSource = students;
+            foreach (var item in students)
+            {
+                studentList.DisplayMemberPath = "FirstName";
+            }
+           
+        }
+        private void studentList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Student selectedItem = studentList.SelectedItem as Student;
+
+            if(selectedItem != null)
+            {
+                studentFName.Content = selectedItem.FirstName.ToString();
+            }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        { 
+            string txtName = studentFName.Content.ToString();
+            EditStudent newWindow = new EditStudent(txtName);
+            newWindow.tbStudentFName.Text = txtName;
+            newWindow.ShowDialog();
+            
         }
     }
-
     public class Student
     {
-        public int ID { get; set; }
-        public string Name { get; set; }
+        public string ID { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string StudentNumber { get; set; }
+        public string Email { get; set; }
 
         public Student()
         {
 
         }
+        /*
+        public override string ToString()
+        {
+            return FirstName + " " + LastName;
+        }
+        */
     }
 }
