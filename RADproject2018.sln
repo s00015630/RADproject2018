@@ -14,7 +14,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Video S00015630", "Video S0
 		..\..\..\Downloads\S00015630.webm = ..\..\..\Downloads\S00015630.webm
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AttendanceUserInterface", "AttendanceUserInterface\AttendanceUserInterface.csproj", "{BCDC5A05-13AE-48BD-9129-76D6B7F634E2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AttendanceUserInterface", "..\..\..\Downloads\RADPRJ\RADproject2018-master\AttendanceUserInterface\AttendanceUserInterface.csproj", "{BCDC5A05-13AE-48BD-9129-76D6B7F634E2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
