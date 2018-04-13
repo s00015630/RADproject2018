@@ -12,7 +12,7 @@ using Server_API.Models;
 
 namespace Server_API.Controllers
 {
-    [Authorize(Roles ="Admin")]
+    [Authorize(Roles ="Admin")] 
     [RoutePrefix("api/Students")]
     public class StudentsController : ApiController
     {
